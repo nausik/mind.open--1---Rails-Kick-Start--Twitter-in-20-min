@@ -229,6 +229,7 @@ rake db:migrate
 ```
 
 Это смигрирует все в БД
+
 И, наконец
 ```ruby
 rails server
