@@ -1,0 +1,27 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Author</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td class = "post_body"><%= post.text %></td>
+    <td><%= post.user.username %> </td>
+    <td><%= link_to 'Show', post %></td>
+    <% if can? :manage, post %>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
